@@ -8,8 +8,9 @@ $client = new Client();
 $subject = 'Test Email';
 $message = 'Greetings from Apleona';
 $to = 'conor@test.com';
+$cc = json_encode(array('test1@test.com','test2@test.com'));
 try {
-    $response = $client->get('http://localhost:8000/send-mail/?subject='.$subject.'&to='.$to.'&message='.$message)->send();
+    $response = $client->get('http://localhost:8000/send-mail/?subject='.$subject.'&to='.$to.'&cc='.$cc.'&message='.$message)->send();
 }
 
 catch (Guzzle\Http\Exception\BadResponseException $e) {
